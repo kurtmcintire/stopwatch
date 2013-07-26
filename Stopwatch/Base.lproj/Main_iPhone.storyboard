@@ -27,6 +27,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="timerAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="a6U-Zb-f4w"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7AA-KD-iec">
                                 <rect key="frame" x="80" y="105" width="161" height="29"/>
@@ -46,6 +49,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="7AA-KD-iec" id="EC0-Cl-Ue1"/>
+                        <outlet property="startStopButton" destination="LdB-ft-YrO" id="rpJ-qy-f43"/>
+                        <outlet property="timerLabel" destination="noJ-bh-URb" id="VMY-qt-eIg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
