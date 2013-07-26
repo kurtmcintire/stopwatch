@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 KurtMcIntire. All rights reserved.
 //
 
+// Adding a comment to set up Git
+
 #import "ViewController.h"
 
 @interface ViewController ()
