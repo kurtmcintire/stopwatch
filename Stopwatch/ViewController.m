@@ -24,6 +24,7 @@
     // Whenever the app loads, the stopwatch is not active.
     boolActive = NO;
     _resetButton.hidden = TRUE;
+    intTime = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,8 +48,9 @@
         // Now that the stopwatch is running, change the button title to Stop
         [_startStopButton setTitle:@"Stop" forState:UIControlStateNormal];
         
-        intTime = 0;
         NSLog(@"Stopwatch started");
+        
+        _resetButton.hidden = TRUE;
         
     } else {
         
@@ -59,7 +61,7 @@
         
         [_startStopButton setTitle:@"Start" forState:UIControlStateNormal];
         
-        NSLog(@"Stopped");
+        NSLog(@"Stopwatch stopped");
         
         _resetButton.hidden = FALSE;
         
