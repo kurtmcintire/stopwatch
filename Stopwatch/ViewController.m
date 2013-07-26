@@ -23,6 +23,7 @@
     
     // Whenever the app loads, the stopwatch is not active.
     boolActive = NO;
+    _resetButton.hidden = TRUE;
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,6 +61,8 @@
         
         NSLog(@"Stopped");
         
+        _resetButton.hidden = FALSE;
+        
     }
 }
 
@@ -70,6 +73,12 @@
     _timerLabel.text = [NSString stringWithFormat:@"%i", intTime];
     NSLog(@"Stopwatch time = %i", intTime);
     
+}
+
+- (IBAction)resetAction:(id)sender {
+    
+    intTime = 0;
+    _timerLabel.text = [NSString stringWithFormat:@"%i", intTime];
 }
 
 @end

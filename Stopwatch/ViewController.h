@@ -18,10 +18,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
 
 
 
 - (IBAction)timerAction:(id)sender;
 -(void)timerControl;
+- (IBAction)resetAction:(id)sender;
 
 @end
