@@ -70,17 +70,24 @@
 
 -(void)timerControl {
     
-    intTime += 1;
+    intTime += 1.0;
     
-    _timerLabel.text = [NSString stringWithFormat:@"%i", intTime];
-    NSLog(@"Stopwatch time = %i", intTime);
+    double seconds = fmod(intTime, 60.0);
+    double minutes = fmod(trunc(intTime / 60.0), 60.0);
+    double hours = trunc(intTime / 3600.0);
+    
+    _timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
     
 }
 
 - (IBAction)resetAction:(id)sender {
     
     intTime = 0;
-    _timerLabel.text = [NSString stringWithFormat:@"%i", intTime];
+    double seconds = fmod(intTime, 60.0);
+    double minutes = fmod(trunc(intTime / 60.0), 60.0);
+    double hours = trunc(intTime / 3600.0);
+
+    _timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
 }
 
 @end

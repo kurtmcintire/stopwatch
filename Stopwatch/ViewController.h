@@ -12,6 +12,7 @@
 {
     BOOL boolActive;
     int intTime;
+
 }
 
 @property (nonatomic, strong) NSTimer *timerMain;
