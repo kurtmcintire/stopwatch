@@ -42,10 +42,13 @@
         
         _startDate = [NSDate date];
         
-        NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
-                                                              dateStyle:NSDateFormatterShortStyle
-                                                              timeStyle:NSDateFormatterFullStyle];
-        NSLog(@"%@",dateString);
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM/dd/yyyy, HH:mm:ss"];
+        NSString *dateString = [dateFormatter stringFromDate:_startDate];
+        
+        NSLog(@"%@", dateString);
+        NSLog(@"%@", _startDate);
+
         
         _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(timerControl) userInfo:nil repeats:YES];
         
