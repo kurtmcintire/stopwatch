@@ -15,17 +15,16 @@
 
 }
 
-@property (nonatomic, strong) NSTimer *timerMain;
-
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSDate *endDate;
+
 @property NSTimeInterval *timeInterval;
 
+@property (nonatomic, strong) NSTimer *timerMain;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
-
 
 
 - (IBAction)timerAction:(id)sender;
