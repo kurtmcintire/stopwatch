@@ -16,6 +16,7 @@
 }
 
 @property (nonatomic, strong) NSTimer *timerMain;
+@property (nonatomic, strong) NSDate *startDate;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
