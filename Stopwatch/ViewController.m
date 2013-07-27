@@ -43,6 +43,11 @@
         
         _startDate = [NSDate date];
         
+        NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
+                                                              dateStyle:NSDateFormatterShortStyle
+                                                              timeStyle:NSDateFormatterFullStyle];
+        NSLog(@"%@",dateString);
+        
         _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(timerControl) userInfo:nil repeats:YES];
         
         // Set the bool to Active now that timerControl is called
