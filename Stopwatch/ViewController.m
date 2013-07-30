@@ -26,6 +26,10 @@
     intTime = 0;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"View Appeared");
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -47,7 +51,7 @@
         NSString *dateString = [dateFormatter stringFromDate:_startDate];
         
         NSLog(@"%@", dateString);
-        NSLog(@"%@", _startDate);
+//        NSLog(@"%@", _startDate);
 
         
         _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self
@@ -75,6 +79,15 @@
         [_startStopButton setTitle:@"Start" forState:UIControlStateNormal];
         
         NSLog(@"Stopwatch stopped");
+        
+        _stopDate = [NSDate date];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM/dd/yyyy, HH:mm:ss"];
+        NSString *dateString = [dateFormatter stringFromDate:_stopDate];
+        
+        NSLog(@"%@", dateString);
+//        NSLog(@"%@", _stopDate);
         
         _resetButton.hidden = FALSE;
         
@@ -107,5 +120,11 @@
     
     NSLog(@"Saving time");
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    NSLog(@"View Disappeared");
+}
+
 
 @end

@@ -38,8 +38,7 @@
     NSString *dateString = [dateFormatter stringFromDate:_backgroundDate];
     
     NSLog(@"%@", dateString);
-    NSLog(@"%@", _backgroundDate);
-    
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
