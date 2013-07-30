@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "SWObject.h"
 
 @implementation AppDelegate
 
@@ -38,7 +39,6 @@
     NSString *dateString = [dateFormatter stringFromDate:_backgroundDate];
     
     NSLog(@"%@", dateString);
-
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -53,6 +53,15 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     NSLog(@"Did Become Active");
+    
+    _activeDate = [NSDate date];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/dd/yyyy, HH:mm:ss"];
+    NSString *dateString = [dateFormatter stringFromDate:_activeDate];
+    
+    NSLog(@"%@", dateString);
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

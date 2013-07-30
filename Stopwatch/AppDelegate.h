@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) NSDate *backgroundDate;
+@property (nonatomic, strong) NSDate *activeDate;
 
 
 @end

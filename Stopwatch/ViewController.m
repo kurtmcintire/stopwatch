@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "SWObject.h"
 
 @interface ViewController ()
 
@@ -44,6 +45,8 @@
        
         // If not active
         
+        NSLog(@"Stopwatch started");
+        
         _startDate = [NSDate date];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -51,8 +54,6 @@
         NSString *dateString = [dateFormatter stringFromDate:_startDate];
         
         NSLog(@"%@", dateString);
-//        NSLog(@"%@", _startDate);
-
         
         _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self
                                                                     selector:@selector(timerControl)
@@ -64,8 +65,6 @@
         
         // Now that the stopwatch is running, change the button title to Stop
         [_startStopButton setTitle:@"Stop" forState:UIControlStateNormal];
-        
-        NSLog(@"Stopwatch started");
         
         _resetButton.hidden = TRUE;
         
@@ -87,7 +86,6 @@
         NSString *dateString = [dateFormatter stringFromDate:_stopDate];
         
         NSLog(@"%@", dateString);
-//        NSLog(@"%@", _stopDate);
         
         _resetButton.hidden = FALSE;
         
@@ -120,11 +118,5 @@
     
     NSLog(@"Saving time");
 }
-
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    NSLog(@"View Disappeared");
-}
-
 
 @end

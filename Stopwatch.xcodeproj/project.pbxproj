@@ -22,6 +22,7 @@
 		BF10E18817A32D8C00D98C2C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF10E16717A32D8C00D98C2C /* UIKit.framework */; };
 		BF10E19017A32D8C00D98C2C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF10E18E17A32D8C00D98C2C /* InfoPlist.strings */; };
 		BF10E19217A32D8C00D98C2C /* StopwatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF10E19117A32D8C00D98C2C /* StopwatchTests.m */; };
+		BFE756A317A765FE00365DEF /* SWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE756A217A765FE00365DEF /* SWObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		BF10E18D17A32D8C00D98C2C /* StopwatchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StopwatchTests-Info.plist"; sourceTree = "<group>"; };
 		BF10E18F17A32D8C00D98C2C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF10E19117A32D8C00D98C2C /* StopwatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StopwatchTests.m; sourceTree = "<group>"; };
+		BFE756A117A765FE00365DEF /* SWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWObject.h; sourceTree = "<group>"; };
+		BFE756A217A765FE00365DEF /* SWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				BF10E17817A32D8C00D98C2C /* Main_iPad.storyboard */,
 				BF10E17B17A32D8C00D98C2C /* ViewController.h */,
 				BF10E17C17A32D8C00D98C2C /* ViewController.m */,
+				BFE756A117A765FE00365DEF /* SWObject.h */,
+				BFE756A217A765FE00365DEF /* SWObject.m */,
 				BF10E17E17A32D8C00D98C2C /* Images.xcassets */,
 				BF10E16A17A32D8C00D98C2C /* Supporting Files */,
 			);
@@ -255,6 +260,7 @@
 			files = (
 				BF10E17D17A32D8C00D98C2C /* ViewController.m in Sources */,
 				BF10E17417A32D8C00D98C2C /* AppDelegate.m in Sources */,
+				BFE756A317A765FE00365DEF /* SWObject.m in Sources */,
 				BF10E17017A32D8C00D98C2C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +474,7 @@
 				BF10E19717A32D8D00D98C2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BF10E19817A32D8D00D98C2C /* Build configuration list for PBXNativeTarget "StopwatchTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +483,7 @@
 				BF10E19A17A32D8D00D98C2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

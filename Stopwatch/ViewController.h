@@ -15,6 +15,8 @@
 
 }
 
+@property (nonatomic, strong) NSObject *item;
+
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSDate *stopDate;
 
