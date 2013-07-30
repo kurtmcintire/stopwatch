@@ -50,7 +50,10 @@
         NSLog(@"%@", _startDate);
 
         
-        _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self selector:@selector(timerControl) userInfo:nil repeats:YES];
+        _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self
+                                                                    selector:@selector(timerControl)
+                                                                    userInfo:nil
+                                                                     repeats:YES];
         
         // Set the bool to Active now that timerControl is called
         boolActive = YES;
@@ -98,6 +101,11 @@
     double hours = trunc(intTime / 3600.0);
 
     _timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+}
+
+- (IBAction)saveAction:(id)sender {
+    
+    NSLog(@"Saving time");
 }
 
 @end

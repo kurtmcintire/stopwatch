@@ -23,12 +23,14 @@
 @property (nonatomic, strong) NSTimer *timerMain;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startStopButton;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 
-- (IBAction)timerAction:(id)sender;
 -(void)timerControl;
+- (IBAction)timerAction:(id)sender;
 - (IBAction)resetAction:(id)sender;
+- (IBAction)saveAction:(id)sender;
+
 
 @end
