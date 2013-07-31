@@ -25,6 +25,8 @@
     boolActive = NO;
     _resetButton.hidden = TRUE;
     intTime = 0;
+    
+    self.dateArray = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -37,6 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (IBAction)timerAction:(id)sender {
     
     // Check if stopwatch active
@@ -48,12 +51,8 @@
         NSLog(@"Stopwatch started");
         
         _startDate = [NSDate date];
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM/dd/yyyy, HH:mm:ss"];
-        NSString *dateString = [dateFormatter stringFromDate:_startDate];
-        
-        NSLog(@"%@", dateString);
+        [_dateArray addObject:_startDate];
+        NSLog(@"%@", _startDate);
         
         _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self
                                                                     selector:@selector(timerControl)
@@ -81,14 +80,11 @@
         
         _stopDate = [NSDate date];
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM/dd/yyyy, HH:mm:ss"];
-        NSString *dateString = [dateFormatter stringFromDate:_stopDate];
-        
-        NSLog(@"%@", dateString);
+        [_dateArray addObject:_stopDate];
+    
+        NSLog(@"%@", _stopDate);
         
         _resetButton.hidden = FALSE;
-        
     }
 }
 
@@ -116,19 +112,25 @@
 
 - (IBAction)saveAction:(id)sender {
     
+    // Error if clock running?
+    // Is an if statement/exception needed here?
+    
     NSLog(@"Saving time");
+    NSLog(@"Displaying start/stop log: %@", _dateArray);
+    
     NSLog(@"Calculating commute duration...");
     
-    NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
-    
-    NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit| NSSecondCalendarUnit;
-    
-    NSDateComponents *components = [gregorian components:unitFlags
-                                                fromDate:_startDate
-                                                  toDate:_stopDate options:0];
-    
-    NSLog(@"Commute Time: %i hours, %i minutes , %i seconds", components.hour, components.minute, components.second);
+    // Calculates commute time for one start stop interval
+//    NSCalendar *gregorian = [[NSCalendar alloc]
+//                             initWithCalendarIdentifier:NSGregorianCalendar];
+//    
+//    NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit| NSSecondCalendarUnit;
+//    
+//    NSDateComponents *components = [gregorian components:unitFlags
+//                                                fromDate:_startDate
+//                                                  toDate:_stopDate options:0];
+//    
+//    NSLog(@"Commute Time: %i hours, %i minutes , %i seconds", components.hour, components.minute, components.second);
     
 }
 

@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSDate *stopDate;
+@property (nonatomic, strong) NSMutableArray *dateArray;
 
 @property NSTimeInterval *timeInterval;
 
