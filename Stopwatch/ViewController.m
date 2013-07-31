@@ -117,6 +117,19 @@
 - (IBAction)saveAction:(id)sender {
     
     NSLog(@"Saving time");
+    NSLog(@"Calculating commute duration...");
+    
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit| NSSecondCalendarUnit;
+    
+    NSDateComponents *components = [gregorian components:unitFlags
+                                                fromDate:_startDate
+                                                  toDate:_stopDate options:0];
+    
+    NSLog(@"Commute Time: %i hours, %i minutes , %i seconds", components.hour, components.minute, components.second);
+    
 }
 
 @end
