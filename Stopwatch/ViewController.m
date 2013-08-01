@@ -121,16 +121,16 @@
     NSLog(@"Calculating commute duration...");
     
     // Calculates commute time for one start stop interval
-//    NSCalendar *gregorian = [[NSCalendar alloc]
-//                             initWithCalendarIdentifier:NSGregorianCalendar];
-//    
-//    NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit| NSSecondCalendarUnit;
-//    
-//    NSDateComponents *components = [gregorian components:unitFlags
-//                                                fromDate:_startDate
-//                                                  toDate:_stopDate options:0];
-//    
-//    NSLog(@"Commute Time: %i hours, %i minutes , %i seconds", components.hour, components.minute, components.second);
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit| NSSecondCalendarUnit;
+    
+    NSDateComponents *components = [gregorian components:unitFlags
+                                                fromDate:_startDate
+                                                  toDate:_stopDate options:0];
+    
+    NSLog(@"Commute Time: %i hours, %i minutes , %i seconds", components.hour, components.minute, components.second);
     
 }
 
