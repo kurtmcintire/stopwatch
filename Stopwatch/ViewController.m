@@ -26,7 +26,8 @@
     _resetButton.hidden = TRUE;
     intTime = 0;
     
-    self.dateArray = [[NSMutableArray alloc] init];
+    self.timeStampArray = [[NSMutableArray alloc] init];
+    self.commuteArray = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -51,7 +52,7 @@
         NSLog(@"Stopwatch started");
         
         _startDate = [NSDate date];
-        [_dateArray addObject:_startDate];
+        [_timeStampArray addObject:_startDate];
         NSLog(@"%@", _startDate);
         
         _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self
@@ -79,10 +80,24 @@
         NSLog(@"Stopwatch stopped");
         
         _stopDate = [NSDate date];
-        
-        [_dateArray addObject:_stopDate];
-    
+        [_timeStampArray addObject:_startDate];
         NSLog(@"%@", _stopDate);
+        
+        // Calculates commute time for one start stop interval
+        NSCalendar *gregorian = [[NSCalendar alloc]
+                                 initWithCalendarIdentifier:NSGregorianCalendar];
+        
+        NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit| NSSecondCalendarUnit;
+        
+        NSDateComponents *components = [gregorian components:unitFlags
+                                                    fromDate:_startDate
+                                                      toDate:_stopDate options:0];
+        
+        NSLog(@"Commute Time: %i hours, %i minutes , %i seconds", components.hour, components.minute, components.second);
+        
+        NSUInteger difference = components.second;
+        [_commuteArray addObject:[NSNumber numberWithInteger:difference]];
+
         
         _resetButton.hidden = FALSE;
     }
@@ -116,22 +131,20 @@
     // Is an if statement/exception needed here?
     
     NSLog(@"Saving time");
-    NSLog(@"Displaying start/stop log: %@", _dateArray);
+    
+    NSLog(@"Displaying start/stop log: %@", _timeStampArray);
     
     NSLog(@"Calculating commute duration...");
     
-    // Calculates commute time for one start stop interval
-    NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+    int result = 0;
     
-    NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit| NSSecondCalendarUnit;
+    for(int i=0;i<[_commuteArray count];i++) {
+        
+        result += [[_commuteArray objectAtIndex:i] intValue];
+    }
     
-    NSDateComponents *components = [gregorian components:unitFlags
-                                                fromDate:_startDate
-                                                  toDate:_stopDate options:0];
-    
-    NSLog(@"Commute Time: %i hours, %i minutes , %i seconds", components.hour, components.minute, components.second);
-    
+    NSLog(@"Total Commute Duration: %d", result);
+
 }
 
 @end
