@@ -22,7 +22,9 @@
 		BF10E18817A32D8C00D98C2C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF10E16717A32D8C00D98C2C /* UIKit.framework */; };
 		BF10E19017A32D8C00D98C2C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF10E18E17A32D8C00D98C2C /* InfoPlist.strings */; };
 		BF10E19217A32D8C00D98C2C /* StopwatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF10E19117A32D8C00D98C2C /* StopwatchTests.m */; };
+		BFA95D7717AD6BE200CDE1D8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA95D7617AD6BE200CDE1D8 /* Default-568h@2x.png */; };
 		BFE756A317A765FE00365DEF /* SWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE756A217A765FE00365DEF /* SWObject.m */; };
+		BFE756A617AA01A100365DEF /* CommuteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE756A517AA01A100365DEF /* CommuteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +58,11 @@
 		BF10E18D17A32D8C00D98C2C /* StopwatchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StopwatchTests-Info.plist"; sourceTree = "<group>"; };
 		BF10E18F17A32D8C00D98C2C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF10E19117A32D8C00D98C2C /* StopwatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StopwatchTests.m; sourceTree = "<group>"; };
+		BFA95D7617AD6BE200CDE1D8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BFE756A117A765FE00365DEF /* SWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWObject.h; sourceTree = "<group>"; };
 		BFE756A217A765FE00365DEF /* SWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWObject.m; sourceTree = "<group>"; };
+		BFE756A417AA01A100365DEF /* CommuteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommuteViewController.h; sourceTree = "<group>"; };
+		BFE756A517AA01A100365DEF /* CommuteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommuteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +92,7 @@
 		BF10E15717A32D8C00D98C2C = {
 			isa = PBXGroup;
 			children = (
+				BFA95D7617AD6BE200CDE1D8 /* Default-568h@2x.png */,
 				BF10E16917A32D8C00D98C2C /* Stopwatch */,
 				BF10E18B17A32D8C00D98C2C /* StopwatchTests */,
 				BF10E16217A32D8C00D98C2C /* Frameworks */,
@@ -123,6 +129,8 @@
 				BF10E17817A32D8C00D98C2C /* Main_iPad.storyboard */,
 				BF10E17B17A32D8C00D98C2C /* ViewController.h */,
 				BF10E17C17A32D8C00D98C2C /* ViewController.m */,
+				BFE756A417AA01A100365DEF /* CommuteViewController.h */,
+				BFE756A517AA01A100365DEF /* CommuteViewController.m */,
 				BFE756A117A765FE00365DEF /* SWObject.h */,
 				BFE756A217A765FE00365DEF /* SWObject.m */,
 				BF10E17E17A32D8C00D98C2C /* Images.xcassets */,
@@ -240,6 +248,7 @@
 				BF10E17F17A32D8C00D98C2C /* Images.xcassets in Resources */,
 				BF10E17717A32D8C00D98C2C /* Main_iPhone.storyboard in Resources */,
 				BF10E16E17A32D8C00D98C2C /* InfoPlist.strings in Resources */,
+				BFA95D7717AD6BE200CDE1D8 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE756A617AA01A100365DEF /* CommuteViewController.m in Sources */,
 				BF10E17D17A32D8C00D98C2C /* ViewController.m in Sources */,
 				BF10E17417A32D8C00D98C2C /* AppDelegate.m in Sources */,
 				BFE756A317A765FE00365DEF /* SWObject.m in Sources */,
@@ -397,6 +407,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Stopwatch/Stopwatch-Prefix.pch";
 				INFOPLIST_FILE = "Stopwatch/Stopwatch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -410,6 +421,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Stopwatch/Stopwatch-Prefix.pch";
 				INFOPLIST_FILE = "Stopwatch/Stopwatch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

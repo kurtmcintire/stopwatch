@@ -52,6 +52,7 @@
         NSLog(@"Stopwatch started");
         
         _startDate = [NSDate date];
+        
         [_timeStampArray addObject:_startDate];
         NSLog(@"%@", _startDate);
         
@@ -101,28 +102,40 @@
         
         _resetButton.hidden = FALSE;
     }
+    
+    
+    
+    
 }
 
 -(void)timerControl {
     
-    intTime += 1.0;
+    // Create date from the elapsed time
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.startDate];
+    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
     
-    double seconds = fmod(intTime / 10.0, 60.0);
-    double minutes = fmod(trunc(intTime / 600.0), 60.0);
-    double hours = trunc(intTime / 36000.0);
+    // Create a date formatter
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss.SS"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
     
-    _timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+    // Format the elapsed time and set it to the label
+    NSString *timeString = [dateFormatter stringFromDate:timerDate];
+    self.timerLabel.text = timeString;
     
 }
 
 - (IBAction)resetAction:(id)sender {
-    
-    intTime = 0;
-    double seconds = fmod(intTime, 60.0);
-    double minutes = fmod(trunc(intTime / 60.0), 60.0);
-    double hours = trunc(intTime / 3600.0);
 
-    _timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+    self.timerLabel.text = @"00:00:00.00";
+    
+//    intTime = 0;
+//    double seconds = fmod(intTime, 60.0);
+//    double minutes = fmod(trunc(intTime / 60.0), 60.0);
+//    double hours = trunc(intTime / 3600.0);
+//
+//    _timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
 }
 
 - (IBAction)saveAction:(id)sender {
@@ -144,6 +157,8 @@
     }
     
     NSLog(@"Total Commute Duration: %d", result);
+    
+    // Need to clear out this array after saved
 
 }
 
