@@ -23,6 +23,7 @@
     // Whenever the app loads, the stopwatch is not active.
     boolActive = NO;
     _resetButton.hidden = TRUE;
+    _saveButton.hidden  = TRUE;
     
 }
 
@@ -57,6 +58,7 @@
         [_startStopButton setTitle:@"Stop" forState:UIControlStateNormal];
         
         _resetButton.hidden = TRUE;
+        _saveButton.hidden = TRUE;
         
     } else {
         
@@ -76,6 +78,7 @@
         NSLog(@"%@", _timeString);
         
         _resetButton.hidden = FALSE;
+        _saveButton.hidden = FALSE;
     }
     
     
@@ -114,9 +117,6 @@
 
 - (IBAction)saveAction:(id)sender {
     
-    // Error if clock running?
-    // Is an if statement/exception needed here?
- 
     NSLog(@"Commute Time: %@", _timerLabel.text);
 
 }
