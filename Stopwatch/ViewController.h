@@ -11,18 +11,15 @@
 @interface ViewController : UIViewController
 {
     BOOL boolActive;
-    int intTime;
-
 }
 
 @property (nonatomic, strong) NSObject *item;
 
 @property (nonatomic, strong) NSDate *startDate;
-@property (nonatomic, strong) NSDate *stopDate;
-@property (nonatomic, strong) NSMutableArray *timeStampArray;
-@property (nonatomic, strong) NSMutableArray *commuteArray;
+@property (nonatomic, strong) NSString *timeString;
 
-@property NSTimeInterval *timeInterval;
+@property NSTimeInterval timeInterval;
+@property NSTimeInterval totalTimeInterval;
 
 @property (nonatomic, strong) NSTimer *timerMain;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;

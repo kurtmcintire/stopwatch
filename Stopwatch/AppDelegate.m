@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "SWObject.h"
 
 @implementation AppDelegate
 
@@ -30,37 +29,17 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    NSLog(@"Did Enter Background");
-    
-    _backgroundDate = [NSDate date];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy, HH:mm:ss"];
-    NSString *dateString = [dateFormatter stringFromDate:_backgroundDate];
-    
-    NSLog(@"%@", dateString);
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    
-    NSLog(@"Did Enter Foreground");
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
-    NSLog(@"Did Become Active");
-    
-    _activeDate = [NSDate date];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy, HH:mm:ss"];
-    NSString *dateString = [dateFormatter stringFromDate:_activeDate];
-    
-    NSLog(@"%@", dateString);
 
 }
 

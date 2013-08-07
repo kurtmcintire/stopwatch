@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
-#import "SWObject.h"
 
 @interface ViewController ()
 
@@ -24,14 +23,7 @@
     // Whenever the app loads, the stopwatch is not active.
     boolActive = NO;
     _resetButton.hidden = TRUE;
-    intTime = 0;
     
-    self.timeStampArray = [[NSMutableArray alloc] init];
-    self.commuteArray = [[NSMutableArray alloc] init];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"View Appeared");
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,9 +45,6 @@
         
         _startDate = [NSDate date];
         
-        [_timeStampArray addObject:_startDate];
-        NSLog(@"%@", _startDate);
-        
         _timerMain = [NSTimer scheduledTimerWithTimeInterval:1.0/10.0 target:self
                                                                     selector:@selector(timerControl)
                                                                     userInfo:nil
@@ -71,34 +60,20 @@
         
     } else {
         
-        // If active
+//        [self timerControl];
         [_timerMain invalidate];
+        _timerMain = nil;
+        _totalTimeInterval = _timeInterval;
+
+        
+        // If active
         
         boolActive = NO;
         
         [_startStopButton setTitle:@"Start" forState:UIControlStateNormal];
         
         NSLog(@"Stopwatch stopped");
-        
-        _stopDate = [NSDate date];
-        [_timeStampArray addObject:_startDate];
-        NSLog(@"%@", _stopDate);
-        
-        // Calculates commute time for one start stop interval
-        NSCalendar *gregorian = [[NSCalendar alloc]
-                                 initWithCalendarIdentifier:NSGregorianCalendar];
-        
-        NSUInteger unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit| NSSecondCalendarUnit;
-        
-        NSDateComponents *components = [gregorian components:unitFlags
-                                                    fromDate:_startDate
-                                                      toDate:_stopDate options:0];
-        
-        NSLog(@"Commute Time: %i hours, %i minutes , %i seconds", components.hour, components.minute, components.second);
-        
-        NSUInteger difference = components.second;
-        [_commuteArray addObject:[NSNumber numberWithInteger:difference]];
-
+        NSLog(@"%@", _timeString);
         
         _resetButton.hidden = FALSE;
     }
@@ -112,53 +87,37 @@
     
     // Create date from the elapsed time
     NSDate *currentDate = [NSDate date];
-    NSTimeInterval timeInterval = [currentDate timeIntervalSinceDate:self.startDate];
-    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    _timeInterval = [currentDate timeIntervalSinceDate:_startDate];
+    _timeInterval += _totalTimeInterval;
+    
+    NSDate *timerDate = [NSDate dateWithTimeIntervalSince1970:_timeInterval];
+ 
     
     // Create a date formatter
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm:ss.SS"];
+    [dateFormatter setDateFormat:@"HH:mm:ss.S"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
     
     // Format the elapsed time and set it to the label
-    NSString *timeString = [dateFormatter stringFromDate:timerDate];
-    self.timerLabel.text = timeString;
+    _timeString = [dateFormatter stringFromDate:timerDate];
+    _timerLabel.text = _timeString;
     
 }
 
 - (IBAction)resetAction:(id)sender {
 
-    self.timerLabel.text = @"00:00:00.00";
-    
-//    intTime = 0;
-//    double seconds = fmod(intTime, 60.0);
-//    double minutes = fmod(trunc(intTime / 60.0), 60.0);
-//    double hours = trunc(intTime / 3600.0);
-//
-//    _timerLabel.text = [NSString stringWithFormat:@"%02.0f:%02.0f:%04.1f", hours, minutes, seconds];
+    _startDate = [NSDate date];
+    _timerLabel.text = @"00:00:00.0";
+     _totalTimeInterval = 0;
+
 }
 
 - (IBAction)saveAction:(id)sender {
     
     // Error if clock running?
     // Is an if statement/exception needed here?
-    
-    NSLog(@"Saving time");
-    
-    NSLog(@"Displaying start/stop log: %@", _timeStampArray);
-    
-    NSLog(@"Calculating commute duration...");
-    
-    int result = 0;
-    
-    for(int i=0;i<[_commuteArray count];i++) {
-        
-        result += [[_commuteArray objectAtIndex:i] intValue];
-    }
-    
-    NSLog(@"Total Commute Duration: %d", result);
-    
-    // Need to clear out this array after saved
+ 
+    NSLog(@"Commute Time: %@", _timerLabel.text);
 
 }
 

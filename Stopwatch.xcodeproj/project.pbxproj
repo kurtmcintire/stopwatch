@@ -23,7 +23,6 @@
 		BF10E19017A32D8C00D98C2C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF10E18E17A32D8C00D98C2C /* InfoPlist.strings */; };
 		BF10E19217A32D8C00D98C2C /* StopwatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF10E19117A32D8C00D98C2C /* StopwatchTests.m */; };
 		BFA95D7717AD6BE200CDE1D8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA95D7617AD6BE200CDE1D8 /* Default-568h@2x.png */; };
-		BFE756A317A765FE00365DEF /* SWObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE756A217A765FE00365DEF /* SWObject.m */; };
 		BFE756A617AA01A100365DEF /* CommuteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE756A517AA01A100365DEF /* CommuteViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,8 +58,6 @@
 		BF10E18F17A32D8C00D98C2C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF10E19117A32D8C00D98C2C /* StopwatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StopwatchTests.m; sourceTree = "<group>"; };
 		BFA95D7617AD6BE200CDE1D8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		BFE756A117A765FE00365DEF /* SWObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWObject.h; sourceTree = "<group>"; };
-		BFE756A217A765FE00365DEF /* SWObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWObject.m; sourceTree = "<group>"; };
 		BFE756A417AA01A100365DEF /* CommuteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommuteViewController.h; sourceTree = "<group>"; };
 		BFE756A517AA01A100365DEF /* CommuteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommuteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,8 +128,6 @@
 				BF10E17C17A32D8C00D98C2C /* ViewController.m */,
 				BFE756A417AA01A100365DEF /* CommuteViewController.h */,
 				BFE756A517AA01A100365DEF /* CommuteViewController.m */,
-				BFE756A117A765FE00365DEF /* SWObject.h */,
-				BFE756A217A765FE00365DEF /* SWObject.m */,
 				BF10E17E17A32D8C00D98C2C /* Images.xcassets */,
 				BF10E16A17A32D8C00D98C2C /* Supporting Files */,
 			);
@@ -270,7 +265,6 @@
 				BFE756A617AA01A100365DEF /* CommuteViewController.m in Sources */,
 				BF10E17D17A32D8C00D98C2C /* ViewController.m in Sources */,
 				BF10E17417A32D8C00D98C2C /* AppDelegate.m in Sources */,
-				BFE756A317A765FE00365DEF /* SWObject.m in Sources */,
 				BF10E17017A32D8C00D98C2C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
