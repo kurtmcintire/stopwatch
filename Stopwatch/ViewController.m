@@ -112,12 +112,20 @@
     _startDate = [NSDate date];
     _timerLabel.text = @"00:00:00.0";
      _totalTimeInterval = 0;
+    _resetButton.hidden = TRUE;
+    _saveButton.hidden = TRUE;
 
 }
 
 - (IBAction)saveAction:(id)sender {
     
     NSLog(@"Commute Time: %@", _timerLabel.text);
+    
+    // Send the Commute Time to the CommuteViewController
+    // Dismiss view controller and return to the CommuteViewController
+    // Save to Parse?
+    
+    [self.navigationController popViewControllerAnimated:YES];
 
 }
 

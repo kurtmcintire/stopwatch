@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CommuteViewController : UITableViewController
+@interface CommuteViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
